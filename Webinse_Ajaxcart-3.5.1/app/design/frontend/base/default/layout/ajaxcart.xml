@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <ac_part>
+        <reference name="head">
+            <action method="addItem">
+                <type>js</type>
+                <name>prototype/prototype.js</name>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>prototype/window.js</name>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/ajaxcart/alphacube.css</stylesheet>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>varien/configurable.js</name>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>varien/product.js</name>
+            </action>
+            <action method="addItem" ifconfig="ajaxcart/info/include_old_jquery_version">
+                <type>js</type>
+                <name>ajaxcart/jquery-1.9.0.min.js</name>
+            </action>
+            <action method="addItem" ifconfig="ajaxcart/info/include_old_jquery_version">
+                <type>js</type>
+                <name>ajaxcart/noconflict.js</name>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/ajaxcart/style.css</stylesheet>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            <action method="addCss">
+                <name>lib/prototype/windows/themes/magento.css</name>
+            </action>
+            <block type="core/template" name="base-url">
+                <action method="setTemplate">
+                    <template>ajaxcart/base-url.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </ac_part>
+
+    <default>
+        <update handle="ac_part"/>
+        <reference name="head">
+            <action method="addItem" ifconfig="ajaxcart/all_settings/catalog_list_show">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+        </reference>
+    </default>
+
+    <catalog_product_view>
+        <update handle="ac_part"/>
+        <reference name="head">
+            <action method="removeItem">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+            <action method="addItem" ifconfig="ajaxcart/all_settings/catalog_view_show">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="ajaxcart-form">
+                <action method="setTemplate" ifconfig="ajaxcart/all_settings/catalog_view_show">
+                    <template>ajaxcart/view.phtml</template>
+                </action>
+            </block>
+            <block type="core/template" name="ajaxcart-block">
+                <action method="setTemplate" ifconfig="ajaxcart/all_settings/catalog_view_show">
+                    <template>ajaxcart/ajaxcart.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+
+    <catalog_category_default>
+        <update handle="ac_part"/>
+        <reference name="head">
+            <action method="addItem" ifconfig="ajaxcart/all_settings/catalog_list_show">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <update handle="ac_part"/>
+        <reference name="head">
+            <action method="addItem" ifconfig="ajaxcart/all_settings/catalog_list_show">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+        </reference>
+    </catalog_category_layered>
+
+    <ajaxcart_index_options>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/empty.phtml</template>
+            </action>
+            <action method="setIsHandle">
+                <applied>1</applied>
+            </action>
+        </reference>
+        <update handle="ac_part"/>
+        <reference name="head">
+            <action method="addItem">
+                <type>js_css</type>
+                <name>calendar/calendar-win2k-1.css</name>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>calendar/calendar.js</name>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>calendar/calendar-setup.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/bundle.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="catalog/product_view" name="ajaxcart.product.info" template="ajaxcart/options.phtml">
+                <block type="catalog/product_view" name="product.info.addtocart" as="addtocart"
+                       template="ajaxcart/addtocart.phtml"/>
+                <block type="catalog/product_view" name="product.info.addto" as="addto"
+                       template="ajaxcart/addto.phtml"/>
+
+                <block type="catalog/product_view" name="product.info.options.wrapper" as="product_options_wrapper"
+                       template="catalog/product/view/options/wrapper.phtml" translate="label">
+                    <label>Info Column Options Wrapper</label>
+                    <block type="core/template" name="options_js" template="catalog/product/view/options/js.phtml"/>
+                    <block type="catalog/product_view_options" name="product.info.options" as="product_options"
+                           template="catalog/product/view/options.phtml">
+                        <action method="addOptionRenderer">
+                            <type>text</type>
+                            <block>catalog/product_view_options_type_text</block>
+                            <template>catalog/product/view/options/type/text.phtml</template>
+                        </action>
+                        <action method="addOptionRenderer">
+                            <type>file</type>
+                            <block>catalog/product_view_options_type_file</block>
+                            <template>catalog/product/view/options/type/file.phtml</template>
+                        </action>
+                        <action method="addOptionRenderer">
+                            <type>select</type>
+                            <block>catalog/product_view_options_type_select</block>
+                            <template>catalog/product/view/options/type/select.phtml</template>
+                        </action>
+                        <action method="addOptionRenderer">
+                            <type>date</type>
+                            <block>catalog/product_view_options_type_date</block>
+                            <template>catalog/product/view/options/type/date.phtml</template>
+                        </action>
+                    </block>
+                    <block type="core/html_calendar" name="html_calendar" as="html_calendar"
+                           template="page/js/calendar.phtml"/>
+                </block>
+                <block type="catalog/product_view" name="product.info.options.wrapper.bottom"
+                       as="product_options_wrapper_bottom" template="catalog/product/view/options/wrapper/bottom.phtml"
+                       translate="label">
+                    <label>Bottom Block Options Wrapper</label>
+                    <action method="insert">
+                        <block>product.tierprices</block>
+                    </action>
+                    <block type="catalog/product_view" name="product.clone_prices" as="prices"
+                           template="catalog/product/view/price_clone.phtml"/>
+                    <action method="append">
+                        <block>product.info.addtocart</block>
+                    </action>
+                    <action method="append">
+                        <block>product.info.addto</block>
+                    </action>
+                </block>
+
+                <block type="core/template_facade" name="product.info.container1" as="container1">
+                    <action method="setDataByKey">
+                        <key>alias_in_layout</key>
+                        <value>container1</value>
+                    </action>
+                    <action method="setDataByKeyFromRegistry">
+                        <key>options_container</key>
+                        <key_in_registry>product</key_in_registry>
+                    </action>
+                    <action method="append">
+                        <block>product.info.options.wrapper</block>
+                    </action>
+                    <action method="append">
+                        <block>product.info.options.wrapper.bottom</block>
+                    </action>
+                </block>
+                <block type="core/template_facade" name="product.info.container2" as="container2">
+                    <action method="setDataByKey">
+                        <key>alias_in_layout</key>
+                        <value>container2</value>
+                    </action>
+                    <action method="setDataByKeyFromRegistry">
+                        <key>options_container</key>
+                        <key_in_registry>product</key_in_registry>
+                    </action>
+                    <action method="append">
+                        <block>product.info.options.wrapper</block>
+                    </action>
+                    <action method="append">
+                        <block>product.info.options.wrapper.bottom</block>
+                    </action>
+                </block>
+                <action method="unsetCallChild">
+                    <child>container1</child>
+                    <call>ifEquals</call>
+                    <if>0</if>
+                    <key>alias_in_layout</key>
+                    <key>options_container</key>
+                </action>
+                <action method="unsetCallChild">
+                    <child>container2</child>
+                    <call>ifEquals</call>
+                    <if>0</if>
+                    <key>alias_in_layout</key>
+                    <key>options_container</key>
+                </action>
+            </block>
+        </reference>
+    </ajaxcart_index_options>
+
+    <checkout_cart_index>
+        <update handle="ac_part"/>
+        <reference name="head">
+            <action method="addItem">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+        </reference>
+    </checkout_cart_index>
+
+    <checkout_cart_configure>
+        <reference name="head">
+            <action method="addItem">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+        </reference>
+    </checkout_cart_configure>
+
+    <ajaxcart_index_deletecheckout>
+        <update handle="checkout_cart_index"/>
+    </ajaxcart_index_deletecheckout>
+
+    <ajaxcart_index_deleteall>
+        <update handle="checkout_cart_index"/>
+    </ajaxcart_index_deleteall>
+
+    <ajaxcart_index_update>
+        <update handle="checkout_cart_index"/>
+    </ajaxcart_index_update>
+
+    <wishlist_index_configure>
+        <update handle="ac_part"/>
+        <reference name="head">
+            <action method="addItem" ifconfig="ajaxcart/all_settings/catalog_view_show">
+                <type>js</type>
+                <name>ajaxcart/ajaxcart.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="ajaxcart-form">
+                <action method="setTemplate" ifconfig="ajaxcart/all_settings/catalog_view_show">
+                    <template>ajaxcart/view.phtml</template>
+                </action>
+            </block>
+            <block type="core/template" name="ajaxcart-block">
+                <action method="setTemplate" ifconfig="ajaxcart/all_settings/catalog_view_show">
+                    <template>ajaxcart/ajaxcart.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </wishlist_index_configure>
+</layout>

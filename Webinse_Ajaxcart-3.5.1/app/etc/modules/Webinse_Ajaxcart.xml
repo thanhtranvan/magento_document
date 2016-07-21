@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Webinse_Ajaxcart>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Webinse_Ajaxcart>
+    </modules>
+</config> 

@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <webinse translate="label">
+            <label><![CDATA[<div><img style="height: 15px;vertical-align: top;margin-right: 10px;" id="webinse_block" src="" alt="Webinse" border="0" />Webinse</div><script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('webinse_block').src = SKIN_URL.substring(0, n) + "adminhtml/base/default/ajaxcart/images/webinse.png"</script>]]></label>
+            <sort_order>100</sort_order>
+        </webinse>
+    </tabs>
+    <sections>
+        <ajaxcart translate="label" module="ajaxcart">
+            <tab>webinse</tab>
+            <label>Ajax Cart</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <all_settings translate="label">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <catalog_list_show translate="label">
+                            <label>Show on Product list page</label>
+                            <comment>Enable AjaxCart on product list page</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </catalog_list_show>
+                        <catalog_view_show translate="label">
+                            <label>Show on Product view page</label>
+                            <comment>Enable AjaxCart on product view page</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </catalog_view_show>
+                        <checkout_cart_redirect translate="label">
+                            <label>Redirect to cart</label>
+                            <comment>Enable redirect to checkout cart after adding to cart</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </checkout_cart_redirect>
+                        <checkout_cart_redirect_timeout translate="label">
+                            <label>Redirect to cart time out</label>
+                            <comment>Set redirect time out. From 0 to 30 seconds</comment>
+                            <frontend_type>text</frontend_type>
+                            <!--<source_model>adminhtml/system_config_source_yesno</source_model>-->
+                            <validate>validate-zero-or-greater</validate>
+                            <depends>
+                                <checkout_cart_redirect>1</checkout_cart_redirect>
+                            </depends>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </checkout_cart_redirect_timeout>
+                        <choice_product_info translate="label">
+                            <label>Show product info</label>
+                            <comment>Enable showing product info after adding to cart</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </choice_product_info>
+                        <show_pop_up_after_add translate="label">
+                            <label>Show popup window</label>
+                            <comment>Enable or Disable popup window after adding to cart</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </show_pop_up_after_add>
+                    </fields>
+                </all_settings>
+                <info translate="label">
+                    <label>Extension Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <ext_version translate="label">
+                            <label>Extension version</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <frontend_model>ajaxcart/system_config_extversion</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ext_version>
+                        <mage_version translate="label">
+                            <label>Magento version</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <frontend_model>ajaxcart/system_config_mageversion</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mage_version>
+                    </fields>
+                </info>
+            </groups>
+        </ajaxcart>
+        <website>
+            <label><![CDATA[<a id="webinse_link" title="Webinse" target="_blank" href="http://www.webinse.com/"><span>Visit Website</span></a><script>document.getElementById('webinse_link').previousElementSibling.remove()</script>]]></label>
+            <tab>webinse</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+        </website>
+    </sections>
+</config>

@@ -1,0 +1,34 @@
+<?php $_product = $this->getProduct(); ?>
+<?php $buttonTitle = $this->__('Add to Cart'); ?>
+<?php if($_product->isSaleable()): ?>
+    <div class="add-to-cart">
+        <?php if(!$_product->isGrouped()): ?>
+            <label for="qty"><?php echo $this->__('Qty:') ?></label>
+            <input type="text" name="qty" id="qty" keypress="" maxlength="12"
+                   value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>"
+                   class="input-text qty"/>
+        <?php endif; ?>
+        <?php if($_product->isGrouped()): ?>
+            <input type="hidden" name="ajaxAdd" value="true">
+            <?php echo $this->getLayout()->createBlock("catalog/product_view_type_grouped")->setTemplate("catalog/product/view/type/grouped.phtml")->toHtml(); ?>
+        <?php endif; ?>
+        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart"
+                onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span>
+        </button>
+        <span id='ajax_loader' style='display:none'><img
+                src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>'/></span>
+        <?php echo $this->getChildHtml('', true, true) ?>
+    </div>
+<?php endif; ?>
+
+<script type="text/javascript">
+    jQuery("#qty").keypress(function (e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
+</script>
+
+<?php if ($_product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_BUNDLE): ?>
+    <?php echo $this->getLayout()->createBlock("bundle/catalog_product_view_type_bundle")->setTemplate("bundle/catalog/product/view/type/bundle.phtml")->toHtml(); ?>
+<?php endif; ?>

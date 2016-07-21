@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+    <name>Webinse_Ajaxcart</name>
+    <version>3.5.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/OSL-3.0">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>We provide you with ease to use Ajax Cart extension.</summary>
+    <description>Do you want ajax cart in your store? We provide you with ease to use Ajax Cart extension.&#xD;
+&#xD;
+Our extension allows you to use cart by dint of Ajax. Extension works with different types of product, and it has wide variety of configurations.</description>
+    <notes>- Fixed bug with configurable products;&#xD;
+- Fixed issue with including unnecessary scripts;&#xD;
+- Small improvements.&#xD;
+</notes>
+    <authors><author><name>Sam Petrenko</name><user>MAG000181448</user><email>sam@webinse.com</email></author></authors>
+    <date>2016-06-15</date>
+    <time>14:53:50</time>
+    <contents><target name="magecommunity"><dir name="Webinse"><dir name="Ajaxcart"><dir name="Block"><dir name="System"><dir name="Config"><file name="Extversion.php" hash="9ae356a6ff921c7bdff14dd6df901e22"/><file name="Mageversion.php" hash="58ddef5d221615c6c62230bc12737b95"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="7401b1b73877054ba67eef4e05702579"/></dir><dir name="controllers"><file name="IndexController.php" hash="4848d574190cd65529ad629cdb076b0e"/></dir><dir name="data"><dir name="ajaxcart_setup"><file name="data-install-3.5.1.php" hash="8eab09d714c0311fbfb826024e0558a8"/></dir></dir><dir name="etc"><file name="config.xml" hash="22a4c789bb5bc8373549de658fda4081"/><file name="system.xml" hash="5514d5b9f97f14b03de31b86e078356e"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Webinse_Ajaxcart.xml" hash="23b4b421c7b814256b5e3a4781472545"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="ajaxcart.xml" hash="fa2b7bb1993188127e02c706129c5d87"/></dir><dir name="template"><dir name="ajaxcart"><file name="addto.phtml" hash="97578d707aadb69f4c7f8f98e2ca6160"/><file name="addtocart.phtml" hash="e2ba94532667affa14b31b4443a75d09"/><file name="ajaxcart.phtml" hash="255cb2bf76f7f8c40125af59571ac526"/><file name="base-url.phtml" hash="71d60f75b67660ca0c7e1ea7bd5f4d9f"/><file name="get-form-key.phtml" hash="8eb0dedb3db52ab281788152eb442d6d"/><file name="options.phtml" hash="4fb1e6978f13a3a73605b98da82fe65c"/><file name="view.phtml" hash="a3ad920816f81aca331177038dd53749"/></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="ajaxcart"><file name="ajaxcart.js" hash="978acce2852f62d525e2a85ad3657a48"/><file name="jquery-1.9.0.min.js" hash="e58ce8ae1c722bcf3db06d75e2aa3f6a"/><file name="noconflict.js" hash="3179f2255b046d5f2e9a71e365287bef"/></dir><dir name="prototype"><dir name="windows"><dir name="themes"><dir name="alphacube"><file name="window-close.png" hash="b1d92a3eb17e2f8f6cc1a3595db9288e"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="base"><dir name="default"><dir name="ajaxcart"><dir name="images"><file name="webinse.png" hash="41de2eea984d3661e0b9cccfb6b974a5"/></dir></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><dir name="ajaxcart"><file name="alphacube.css" hash="155d9884c6df2694399c61df930f86c3"/><file name="style.css" hash="0830ac513a4a415d75ae7a3892a71faf"/></dir></dir><dir name="images"><dir name="ajaxcart"><file name="ajax-loader-black.gif" hash="36a085d702409bbe2c22ad3cb4d78b6b"/><file name="ajax-loader-tr.gif" hash="6a02719379764fb2c5f442cf0c756394"/><file name="window-close.png" hash="b1d92a3eb17e2f8f6cc1a3595db9288e"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.2</min><max>6.0.0</max></php></required></dependencies>
+</package>
